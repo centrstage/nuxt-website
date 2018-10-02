@@ -1,7 +1,7 @@
 <template>
   <main class="bg-grey-lighter">
     <section class="sm:flex sm:flex-wrap sm:p-4 sm:pr-0">
-      <div v-for="stream in streams" :key="stream.slug" class="sm:w-1/2 sm:pr-4 md:w-1/3 mb-4">
+      <div v-for="stream in streams" :key="stream.slug" class="mb-4 sm:w-1/2 sm:pr-4 md:w-1/3 lg:w-1/4">
         <Card class="flex flex-col h-full">
           <nuxt-link v-if="stream.thumbnail" :to="'/streams/' + stream.slug">
             <graphcms-image :image="stream.thumbnail" :width="356" :height="200" class="w-full"/>

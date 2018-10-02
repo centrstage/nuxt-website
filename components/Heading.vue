@@ -10,7 +10,7 @@ export default {
     return createElement(
       'h' + this.level,
       {
-        class: "heading font-brand font-normal",
+        class: "heading font-brand font-normal my-2",
         attrs: { 'data-component': 'Heading' }
       },
       this.$slots.default
