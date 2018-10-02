@@ -1,0 +1,26 @@
+query streamBySlug ($slug: String!) {
+  stream ( where: {
+    slug: $slug
+  } ) {
+    title
+    slug
+    venue
+    venueUrl
+    embed
+    time
+    description
+    thumbnail {
+      handle
+    }
+    artists {
+      name
+      username
+      description
+      website
+      facebook
+      twitter
+      snapchat
+      instagram
+    }
+  }
+}

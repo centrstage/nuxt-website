@@ -1,0 +1,16 @@
+query visibleStreams {
+  streams ( where: {
+    visible: true
+  } ) {
+    title
+    slug
+    venue
+    venueUrl
+    embed
+    time
+    description
+    thumbnail {
+      handle
+    }
+  }
+}

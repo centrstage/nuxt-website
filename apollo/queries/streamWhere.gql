@@ -1,0 +1,24 @@
+query streamBySlug ($where: StreamWhereUniqueInput!) {
+  stream (where: $where) {
+    title
+    slug
+    venue
+    venueUrl
+    embed
+    time
+    description
+    thumbnail {
+      handle
+    }
+    artists {
+      name
+      username
+      description
+      website
+      facebook
+      twitter
+      snapchat
+      instagram
+    }
+  }
+}

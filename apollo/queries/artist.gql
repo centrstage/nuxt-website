@@ -1,0 +1,14 @@
+query artist($slug: String!) {
+  artist( where: {
+    slug: $slug
+  } ) { 
+    title
+    username
+    description
+    website
+    facebook
+    twitter
+    snapchat
+    instagram
+  }
+}
