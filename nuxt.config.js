@@ -71,7 +71,7 @@ module.exports = {
   modules: [
     '@nuxtjs/apollo',
     '@nuxtjs/redirect-module'
-  ],
+],
   plugins: [
     '~/plugins/filters',
   ],

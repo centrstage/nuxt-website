@@ -1,6 +1,6 @@
 <template>
-  <main class="stream bg-grey-lighter lg:p-4 font-sans lg:flex">
-    <section class="stream-media mb-4 lg:mb-0 lg:mr-4">
+  <main class="bg-grey-lighter lg:p-4 font-sans lg:flex">
+    <section class="mb-4 lg:mb-0 lg:mr-4">
       <Card>
         <livestream-embed :url="stream.embed" autoplay/>
         <main class="p-4">
@@ -14,7 +14,7 @@
         </main>
       </Card>
     </section>
-    <section v-if="stream.artists.length" class="stream-details max-w-sm">
+    <section v-if="stream.artists.length" class="min-w-100 max-w-sm">
       <Card class="p-4 lg:mb-4 border-b-2 lg:border-0">
         <Heading>Featured Artists</Heading>
       </Card>

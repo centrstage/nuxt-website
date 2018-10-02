@@ -6,7 +6,7 @@
       'flex justify-end': textAlign === 'right'
     }"
     class="text-white bg-cover bg-black-50 bg-multiply">
-    <div class="py-16 md:py-32 px-4 md:px-8">
+    <div class="py-16 md:py-32 px-4 md:px-8 md:w-2/5">
       <slot/>
     </div>
   </section>

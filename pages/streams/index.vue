@@ -1,10 +1,10 @@
 <template>
   <main class="bg-grey-lighter">
-    <section class="flex flex-wrap p-4">
-      <div v-for="stream in streams" :key="stream.slug" class="w-1/3 mb-4">
-        <Card class="flex flex-col mr-4 h-full">
+    <section class="sm:flex sm:flex-wrap sm:p-4 sm:pr-0">
+      <div v-for="stream in streams" :key="stream.slug" class="sm:w-1/2 sm:pr-4 md:w-1/3 mb-4">
+        <Card class="flex flex-col h-full">
           <nuxt-link v-if="stream.thumbnail" :to="'/streams/' + stream.slug">
-            <graphcms-image :image="stream.thumbnail" :width="356" :height="200"/>
+            <graphcms-image :image="stream.thumbnail" :width="356" :height="200" class="w-full"/>
           </nuxt-link>
           <livestream-embed v-else :url="stream.embed"/>
           <div class="p-4">
