@@ -1,6 +1,6 @@
 <template>
   <main class="bg-grey-lighter lg:p-4 font-sans lg:flex">
-    <section class="mb-4 lg:mb-0 lg:mr-4">
+    <section class="w-full mb-4 lg:mb-0 lg:mr-4">
       <Card>
         <livestream-embed :url="stream.embed" autoplay/>
         <main class="p-4">
