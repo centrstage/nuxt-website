@@ -14,7 +14,7 @@
         </main>
       </Card>
     </section>
-    <section v-if="stream.artists.length" class="min-w-100 max-w-sm">
+    <section v-if="stream.artists.length" class="sm:min-w-100 max-w-sm">
       <Card class="p-4 lg:mb-4 border-b-2 lg:border-0">
         <Heading>Featured Artists</Heading>
       </Card>
