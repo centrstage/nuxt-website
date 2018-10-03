@@ -21,12 +21,12 @@
         </Card>
       </div>
     </section>
+    <section v-show="streams" class="flex justify-center mb-4">
+      <nuxt-link to="" class="mr-2">Page 1</nuxt-link>
+      <nuxt-link to="?page=2">Page 2</nuxt-link>
+    </section>
   </main>
 </template>
-
-<style>
-
-</style>
 
 <script>
 import Card from '~/components/Card'
@@ -35,9 +35,25 @@ import Heading from '~/components/Heading'
 import livestreamEmbed from '~/components/livestream-embed'
 import Paragraph from '~/components/Paragraph'
 
-import visibleStreams from '~/apollo/queries/visibleStreams'
+import paginatedVisibleStreams from '~/apollo/queries/paginatedVisibleStreams'
+
+const paginate = route => {
+  const perPage = route.query.perPage || 24
+  const pageNumber = route.query.page || 1
+
+  if (pageNumber) {
+    return {
+      first: perPage,
+      skip: perPage * (pageNumber - 1)
+    }
+  }
+  return {
+    first: perPage
+  }
+}
 
 export default {
+  scrollToTop: true,
   components: {
     Card,
     graphcmsImage,
@@ -47,8 +63,13 @@ export default {
   },
   apollo: {
     streams: {
-      prefetch: true,
-      query: visibleStreams
+      query: paginatedVisibleStreams,
+      prefetch: ({ route }) => {
+        paginate(route)
+      },
+      variables() {
+        return paginate(this.$route)
+      }
     }
   }
 }

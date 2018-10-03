@@ -1,0 +1,20 @@
+query paginatedVisibleStreams ($first: Int, $skip: Int) {
+  streams (
+    first: $first,
+    skip: $skip,
+    where: {
+      visible: true 
+    }
+  ) {
+    title
+    slug
+    venue
+    venueUrl
+    embed
+    time
+    description
+    thumbnail {
+      handle
+    }
+  }
+}
