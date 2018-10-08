@@ -34,7 +34,7 @@ module.exports = {
   */
   build: {
     extractCSS: true,
-    streamcss: [
+    postcss: [
       require('tailwindcss')('./tailwind.js'),
       require('autoprefixer')
     ],
@@ -101,7 +101,6 @@ module.exports = {
       return apolloFetch({ query })
         .then(result => {
           const { data } = result
-          console.log('Fetched data:', data)
           const streamRoutes = data.streams.map(stream => '/streams/' + stream.slug)
 
           return staticRoutes.concat([...streamRoutes])
