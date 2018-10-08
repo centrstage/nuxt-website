@@ -1,9 +1,9 @@
-query paginatedVisibleStreams ($first: Int, $skip: Int) {
+query paginatedStreams ($first: Int, $skip: Int) {
   streams (
     first: $first,
     skip: $skip,
     where: {
-      visible: true 
+      status: PUBLISHED
     }
   ) {
     title

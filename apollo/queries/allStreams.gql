@@ -1,6 +1,6 @@
-query visibleStreams {
+query allStreams {
   streams ( where: {
-    visible: true
+    status: PUBLISHED
   } ) {
     title
     slug
