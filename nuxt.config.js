@@ -15,7 +15,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'CENTRESTAGE | Live Music Anywhere',
+    title: 'CENTRSTAGE | Live Music Anywhere',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
