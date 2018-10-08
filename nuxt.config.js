@@ -2,7 +2,6 @@ const path = require('path')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 
-const redirects = require('./plugins/redirects.js')
 
 class TailwindExtractor {
   static extract(content) {
@@ -74,8 +73,7 @@ module.exports = {
     }
   },
   modules: [
-    '@nuxtjs/apollo',
-    '@nuxtjs/redirect-module'
+    '@nuxtjs/apollo'
   ],
   plugins: [
     '~/plugins/filters',
@@ -84,7 +82,5 @@ module.exports = {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js'
     }
-  },
-  redirect: redirects
+  }
 }
-
