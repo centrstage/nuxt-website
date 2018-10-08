@@ -28,6 +28,7 @@
     "vue-moment": "^4.0.0"
   },
   "devDependencies": {
+    "apollo-fetch": "^0.7.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",

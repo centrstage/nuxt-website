@@ -2,6 +2,7 @@ const path = require('path')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 
+const { createApolloFetch } = require('apollo-fetch')
 
 class TailwindExtractor {
   static extract(content) {
@@ -33,7 +34,7 @@ module.exports = {
   */
   build: {
     extractCSS: true,
-    postcss: [
+    streamcss: [
       require('tailwindcss')('./tailwind.js'),
       require('autoprefixer')
     ],
@@ -81,6 +82,33 @@ module.exports = {
   apollo: {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js'
+    }
+  },
+  generate: {
+    routes: function () {
+      const staticRoutes = []
+
+      const GRAPHCMS_API = 'https://api-euwest.graphcms.com/v1/cjmi83q8227ho01b9abzzxgrw/master'
+      const apolloFetch = createApolloFetch({ uri: GRAPHCMS_API })
+      const query = `
+        query allStreamSlugs {
+          streams {
+            slug
+          }
+        }
+        `
+
+      return apolloFetch({ query })
+        .then(result => {
+          const { data } = result
+          console.log('Fetched data:', data)
+          const streamRoutes = data.streams.map(stream => '/streams/' + stream.slug)
+
+          return staticRoutes.concat([...streamRoutes])
+        })
+        .catch(error => {
+          console.log('Something went wrong.', error)
+        })
     }
   }
 }
