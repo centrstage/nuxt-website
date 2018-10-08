@@ -3,7 +3,6 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 
 const { createApolloFetch } = require('apollo-fetch')
-const allStreams = require('~/apollo/queries/allStreams')
 
 class TailwindExtractor {
   static extract(content) {
@@ -90,7 +89,13 @@ module.exports = {
       const staticRoutes = []
       const GRAPHCMS_API = 'https://api-euwest.graphcms.com/v1/cjmi83q8227ho01b9abzzxgrw/master'
       const apolloFetch = createApolloFetch({ uri: GRAPHCMS_API })
-      const query = allStreams
+      const query = `
+      query allStreamSlugs {
+        streams {
+          slug
+        }
+      }
+      `
 
       return apolloFetch({ query })
         .then(result => {
