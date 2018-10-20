@@ -9,7 +9,7 @@
           <livestream-embed v-else :url="stream.embed"/>
           <div class="p-4">
             <nuxt-link :to="'/streams/' + stream.slug" class="no-underline">
-              <Heading class="mb-2 text-black" level="3">{{ stream.title }}</Heading>
+              <Heading level="3" class="mb-2 text-black">{{ stream.title }}</Heading>
             </nuxt-link>
             <Paragraph class="text-sm">
               Recorded {{ stream.time | moment('Do MMMM YYYY') }}.

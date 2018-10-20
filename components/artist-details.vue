@@ -1,6 +1,6 @@
 <template>
   <Card data-component="artist-details" class="p-4">
-    <Heading :level="2">{{ artist.name }}</Heading>
+    <Heading level="2">{{ artist.name }}</Heading>
     <Paragraph>{{ artist.description }}</Paragraph>
     <Paragraph v-if="artist.website">Website: <a :href="artist.website" target="_blank">{{ artist.website }}</a></Paragraph>
 

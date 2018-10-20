@@ -2,8 +2,8 @@
 export default {
   props: {
     level: {
-      type: Number,
-      default: 1
+      type: String,
+      default: '1'
     }
   },
   render: function (createElement) {
