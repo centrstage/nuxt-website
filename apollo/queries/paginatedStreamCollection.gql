@@ -1,0 +1,20 @@
+query paginatedStreamCollection ($title: String!, $first: Int, $skip: Int) {
+  streamCollection(where: { title: $title }) {
+    streams (
+      first: $first,
+      skip: $skip,
+      orderBy: order_DESC
+    ) {
+      title
+      slug
+      venue
+      venueUrl
+      embed
+      time
+      description
+      thumbnail {
+        handle
+      }
+    }
+  }
+}

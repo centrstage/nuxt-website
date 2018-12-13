@@ -35,7 +35,7 @@ import Heading from '~/components/Heading'
 import livestreamEmbed from '~/components/livestream-embed'
 import Paragraph from '~/components/Paragraph'
 
-import paginatedStreams from '~/apollo/queries/paginatedStreams'
+import paginatedStreamCollection from '~/apollo/queries/paginatedStreamCollection'
 
 const paginate = route => {
   const perPage = route.query.perPage || 24
@@ -63,12 +63,19 @@ export default {
   },
   apollo: {
     streams: {
-      query: paginatedStreams,
-      prefetch: ({ route }) => {
-        paginate(route)
-      },
+      query: paginatedStreamCollection,
+      prefetch: ({ route }) => ({
+        title: 'Main Archive',
+        ...paginate(route)
+      }),
       variables() {
-        return paginate(this.$route)
+        return {
+          title: 'Main Archive',
+          ...paginate(this.$route)
+        }
+      },
+      update(data) {
+        return data.streamCollection.streams
       }
     }
   }

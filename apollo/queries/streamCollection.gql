@@ -1,0 +1,16 @@
+query streamCollection($title: String!) {
+  streamCollection(where: { title: $title }) {
+    streams(orderBy: order_ASC) {
+      title
+      slug
+      venue
+      venueUrl
+      embed
+      time
+      description
+      thumbnail {
+        handle
+      }
+    }
+  }
+}
