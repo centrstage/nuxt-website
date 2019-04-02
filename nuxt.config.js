@@ -100,7 +100,7 @@ module.exports = {
         .then(result => {
           const { data } = result
           const streamRoutes = data.streams.map(
-            stream => '/streams/' + stream.slug
+            stream => '/videos/' + stream.slug
           )
 
           return staticRoutes.concat([...streamRoutes])
