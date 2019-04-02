@@ -2,21 +2,19 @@
   <main>
     <Hero class="bg-center" style="background-image: url('/hero-image.jpg');" text-align="right">
       <Heading class="text-3xl uppercase font-extrabold">Join the band.</Heading>
-      <Paragraph>Live music streamed anywhere, on any device.</Paragraph>
-      <Button href="/streams" type="primary" nuxt>Watch now</Button>
+      <Button href="/videos" type="primary" nuxt>Watch now</Button>
     </Hero>
     <section class="container p-4 mx-auto my-12">
-      <Heading class="text-3xl">We're bringling live music to you!</Heading>
-      <Heading class="text-3xl">Join the movement.</Heading>
-      <Paragraph>Find new bands and keep up with your favourites on <Logotype/>.</Paragraph>
-      <Paragraph>Watch live live concert streams for free, follow the links to voluntaily donate and support real musicians - it's like virtual busking!</Paragraph>
+      <Heading class="text-3xl">Stand out from the crowd.</Heading>
+      <Paragraph>Create innovative music videos with CENTRSTAGE.</Paragraph>
+      <Paragraph>Email <a href="mailto:finbarrpyne@centrstage.com" class="text-red">finbarrpyne@centrstage.com</a> to get in touch.</Paragraph>
       <hr>
     </section>
     <section class="bg-grey-lighter">
       <div class="container p-4 mx-auto">
         <Heading class="text-3xl">Professional Music Video Features</Heading>
         <Paragraph class="mb-4">Here's a short feature on the amazing Don Baker &amp; Rob Strong.</Paragraph>
-        <livestream-embed url="https://livestream.com/accounts/23488315/events/7988695/videos/170407247/player?width=640&height=360&enableInfo=true&defaultDrawer=&autoPlay=false&mute=false"/>
+        <livestream-embed url="https://player.vimeo.com/video/325480777"/>
       </div>
     </section>
   </main>

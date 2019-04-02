@@ -7,8 +7,7 @@
         </nuxt-link>
       </div>
       <div class="pb-2 sm:pb-0">
-        <nuxt-link to="/about" class="font-brand text-white hover:text-grey-light uppercase no-underline mr-4">About</nuxt-link>
-        <nuxt-link to="/streams" class="font-brand text-white hover:text-grey-light uppercase no-underline">Live Concert Streams</nuxt-link>
+        <nuxt-link to="/videos" class="font-brand text-white hover:text-grey-light uppercase no-underline">Video Library</nuxt-link>
       </div>
     </nav>
   </header>
