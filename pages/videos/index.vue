@@ -1,21 +1,21 @@
 <template>
   <main class="bg-grey-lighter">
     <section class="sm:flex sm:flex-wrap sm:p-4 sm:pr-0">
-      <div v-for="stream in streams" :key="stream.slug" class="mb-4 sm:w-1/2 sm:pr-4 md:w-1/3 lg:w-1/4">
+      <div v-for="video in streams" :key="video.slug" class="mb-4 sm:w-1/2 sm:pr-4 md:w-1/3 lg:w-1/4">
         <Card class="flex flex-col h-full">
-          <nuxt-link v-if="stream.thumbnail" :to="'/streams/' + stream.slug">
-            <graphcms-image :image="stream.thumbnail" :width="356" :height="200" class="w-full"/>
+          <nuxt-link v-if="video.thumbnail" :to="'/videos/' + video.slug">
+            <graphcms-image :image="video.thumbnail" :width="356" :height="200" class="w-full"/>
           </nuxt-link>
-          <livestream-embed v-else :url="stream.embed"/>
+          <livestream-embed v-else :url="video.embed"/>
           <div class="p-4">
-            <nuxt-link :to="'/streams/' + stream.slug" class="no-underline">
-              <Heading level="3" class="mb-2 text-black">{{ stream.title }}</Heading>
+            <nuxt-link :to="'/videos/' + video.slug" class="no-underline">
+              <Heading level="3" class="mb-2 text-black">{{ video.title }}</Heading>
             </nuxt-link>
             <Paragraph class="text-sm">
-              Recorded {{ stream.time | moment('Do MMMM YYYY') }}.
+              {{ video.time | moment('Do MMMM YYYY') }}.
             </Paragraph>
             <Paragraph>
-              {{ stream.description | truncate(115, '...') }}
+              {{ video.description | truncate(115, '...') }}
             </Paragraph>
           </div>
         </Card>
