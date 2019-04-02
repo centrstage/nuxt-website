@@ -6,7 +6,7 @@
         <main class="p-4">
           <Heading class="font-brand">{{ stream.title }}</Heading>
           <Paragraph>
-            Recorded live on {{ stream.time | moment('Do MMMM YYYY') }} at <a :href="stream.venueUrl">{{ stream.venue }}</a>.
+            {{ stream.time | moment('Do MMMM YYYY') }} at <a :href="stream.venueUrl">{{ stream.venue }}</a>.
           </Paragraph>
           <Paragraph>
             {{ stream.description }}

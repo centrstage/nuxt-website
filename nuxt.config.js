@@ -12,33 +12,32 @@ class TailwindExtractor {
 
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'CENTRSTAGE | Live Music Anywhere',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Get your band out there.' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Get your band out there.'
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
-  ** Customize the progress bar color
-  */
+   ** Customize the progress bar color
+   */
   loading: { color: '#98202a' },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     extractCSS: true,
-    postcss: [
-      require('tailwindcss')('./tailwind.js'),
-      require('autoprefixer')
-    ],
-    extend (config, { isDev, isClient }) {
+    postcss: [require('tailwindcss')('./tailwind.js'), require('autoprefixer')],
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -65,30 +64,30 @@ module.exports = {
       )
     }
   },
-  css: [
-    '~/assets/sass/style.scss'
-  ],
+  css: ['~/assets/sass/style.scss'],
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior: function(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
   },
-  modules: [
-    '@nuxtjs/apollo'
-  ],
-  plugins: [
-    '~/plugins/filters',
-  ],
+  modules: ['@nuxtjs/apollo', '@nuxtjs/redirect-module'],
+  plugins: ['~/plugins/filters'],
   apollo: {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js'
     }
   },
+  redirect: [
+    { from: '^/streams', to: '/videos', statusCode: 301 },
+    { from: '^/streams/(.*)$', to: '/videos/$1' }
+  ],
   generate: {
-    routes: function () {
+    subFolders: false,
+    routes: function() {
       const staticRoutes = []
 
-      const GRAPHCMS_API = 'https://api-euwest.graphcms.com/v1/cjmi83q8227ho01b9abzzxgrw/master'
+      const GRAPHCMS_API =
+        'https://api-euwest.graphcms.com/v1/cjmi83q8227ho01b9abzzxgrw/master'
       const apolloFetch = createApolloFetch({ uri: GRAPHCMS_API })
       const query = `
         query allStreamSlugs {
@@ -101,7 +100,9 @@ module.exports = {
       return apolloFetch({ query })
         .then(result => {
           const { data } = result
-          const streamRoutes = data.streams.map(stream => '/streams/' + stream.slug)
+          const streamRoutes = data.streams.map(
+            stream => '/videos/' + stream.slug
+          )
 
           return staticRoutes.concat([...streamRoutes])
         })

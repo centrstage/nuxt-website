@@ -1,0 +1,7 @@
+[[redirects]]
+  from = "/streams"
+  to = "/videos"
+
+[[redirects]]
+  from = "/streams/*"
+  to = "/videos/:splat"
