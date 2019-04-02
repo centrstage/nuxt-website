@@ -82,6 +82,7 @@ module.exports = {
     { from: '^/streams/(.*)$', to: '/videos/$1' }
   ],
   generate: {
+    subFolders: false,
     routes: function() {
       const staticRoutes = []
 
